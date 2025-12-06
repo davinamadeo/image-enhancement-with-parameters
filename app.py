@@ -25,7 +25,7 @@ from PIL import Image
 # KONFIGURASI HALAMAN
 # ================================
 st.set_page_config(
-    page_title="Interactive Digital Image Processing - ITS",
+    page_title="Interactive Digital Image Processing Application",
     layout="wide",
     page_icon="🎓"
 )
@@ -72,19 +72,16 @@ st.markdown("""
 # ================================
 st.markdown("""
 <div class="main-header">
-    <h1>🎓 Interactive Digital Image Processing Application</h1>
+    <h1>Interactive Digital Image Processing Application</h1>
     <p style="font-size: 18px;">Enhancement • FFT Filtering • Color Processing • Segmentation Berbasis Slider Parameter</p>
-    <p style="font-size: 14px; margin-top: 10px;">Institut Teknologi Sepuluh Nopember Surabaya</p>
 </div>
 """, unsafe_allow_html=True)
 
 # ================================
 # SIDEBAR - INFORMASI DAN KONFIGURASI
 # ================================
-with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/ITS_Surabaya_Logo.svg/1200px-ITS_Surabaya_Logo.svg.png", width=150)
-    
-    st.markdown("### 👥 Tim Pengembang")
+with st.sidebar:    
+    st.markdown("### Tim Pengembang")
     st.markdown("""
     - Fadaukas Daffa Tajuddin (5025231149)
     - Davin Amadeo Wijaya (5025231204)
@@ -93,7 +90,7 @@ with st.sidebar:
     
     st.markdown("---")
     
-    st.markdown("### ⚙️ Pengaturan")
+    st.markdown("### Pengaturan")
     
     # Mode operasi
     operation_mode = st.radio(
@@ -109,14 +106,14 @@ with st.sidebar:
     )
     
     # Opsi tampilan
-    st.markdown("### 📊 Opsi Tampilan")
+    st.markdown("### Opsi Tampilan")
     show_histogram = st.checkbox("Tampilkan Histogram", value=False)
     show_spectrum = st.checkbox("Tampilkan Spektrum FFT", value=True)
     show_info = st.checkbox("Tampilkan Info Citra", value=True)
     
     st.markdown("---")
     
-    st.markdown("### 📚 Tentang Aplikasi")
+    st.markdown("### Tentang Aplikasi")
     st.info("""
     Aplikasi ini mengimplementasikan pipeline pengolahan citra digital yang mencakup:
     
@@ -212,7 +209,7 @@ def display_fft_spectrum(fshift, title="FFT Magnitude Spectrum"):
 # ================================
 # UPLOAD CITRA
 # ================================
-st.markdown('<div class="module-header">📁 INPUT CITRA</div>', unsafe_allow_html=True)
+st.markdown('<div class="module-header">INPUT CITRA</div>', unsafe_allow_html=True)
 
 uploaded_file = st.file_uploader(
     "Upload Citra (PNG/JPG/BMP)",
@@ -263,7 +260,7 @@ if uploaded_file:
     # =====================================================
     # MODUL 1: ENHANCEMENT (DOMAIN SPASIAL)
     # =====================================================
-    st.markdown('<div class="module-header">✨ MODUL 1: ENHANCEMENT (DOMAIN SPASIAL)</div>', unsafe_allow_html=True)
+    st.markdown('<div class="module-header">MODUL 1: ENHANCEMENT (DOMAIN SPASIAL)</div>', unsafe_allow_html=True)
     
     st.markdown('<div class="info-box">Meningkatkan kualitas visual citra melalui manipulasi nilai piksel secara langsung.</div>', unsafe_allow_html=True)
     
@@ -275,7 +272,7 @@ if uploaded_file:
     
     # Tab 1: Transformasi Intensitas
     with enhancement_tabs[0]:
-        st.markdown("#### 🎚️ Transformasi Intensitas")
+        st.markdown("#### Transformasi Intensitas")
         
         transform_type = st.selectbox(
             "Pilih Metode Transformasi",
@@ -357,7 +354,7 @@ if uploaded_file:
     
     # Tab 2: Histogram Processing
     with enhancement_tabs[1]:
-        st.markdown("#### 📊 Histogram Processing")
+        st.markdown("#### Histogram Processing")
         
         hist_method = st.selectbox(
             "Pilih Metode Histogram",
@@ -418,7 +415,7 @@ if uploaded_file:
     
     # Tab 3: Filtering Spasial
     with enhancement_tabs[2]:
-        st.markdown("#### 🔧 Filtering Spasial")
+        st.markdown("#### Filtering Spasial")
         
         filter_type = st.selectbox(
             "Pilih Filter Spasial",
@@ -514,7 +511,7 @@ if uploaded_file:
     # =====================================================
     # MODUL 2: FFT FILTERING (DOMAIN FREKUENSI)
     # =====================================================
-    st.markdown('<div class="module-header">📈 MODUL 2: FFT FILTERING (DOMAIN FREKUENSI)</div>', unsafe_allow_html=True)
+    st.markdown('<div class="module-header">MODUL 2: FFT FILTERING (DOMAIN FREKUENSI)</div>', unsafe_allow_html=True)
     
     st.markdown('<div class="info-box">Pemrosesan citra dalam domain frekuensi menggunakan Fast Fourier Transform untuk filtering dan analisis.</div>', unsafe_allow_html=True)
     
@@ -531,7 +528,7 @@ if uploaded_file:
     
     # Tab 1: FFT Visualization
     with fft_tabs[0]:
-        st.markdown("#### 🔬 Visualisasi Spektrum FFT")
+        st.markdown("#### Visualisasi Spektrum FFT")
         
         col_fft1, col_fft2 = st.columns(2)
         
@@ -552,7 +549,7 @@ if uploaded_file:
     
     # Tab 2: Frequency Filtering
     with fft_tabs[1]:
-        st.markdown("#### 🎛️ Frequency Domain Filtering")
+        st.markdown("#### Frequency Domain Filtering")
         
         freq_filter_type = st.selectbox(
             "Pilih Filter Frekuensi",
@@ -625,7 +622,7 @@ if uploaded_file:
     
     # Tab 3: Homomorphic Filtering
     with fft_tabs[2]:
-        st.markdown("#### 💡 Homomorphic Filtering")
+        st.markdown("#### Homomorphic Filtering")
         st.markdown("**Homomorphic Filtering**: Memisahkan komponen iluminasi dan reflektansi untuk normalisasi pencahayaan")
         
         apply_homomorphic = st.checkbox("Terapkan Homomorphic Filtering")
@@ -680,7 +677,7 @@ if uploaded_file:
     # MODUL 3: COLOR MODEL PROCESSING
     # =====================================================
     if is_color:
-        st.markdown('<div class="module-header">🎨 MODUL 3: COLOR MODEL PROCESSING</div>', unsafe_allow_html=True)
+        st.markdown('<div class="module-header">MODUL 3: COLOR MODEL PROCESSING</div>', unsafe_allow_html=True)
         
         st.markdown('<div class="info-box">Transformasi dan pemrosesan citra dalam berbagai model warna untuk analisis berbasis warna.</div>', unsafe_allow_html=True)
         
@@ -688,7 +685,7 @@ if uploaded_file:
         
         # Tab 1: Color Space Transformation
         with color_tabs[0]:
-            st.markdown("#### 🔄 Transformasi Color Space")
+            st.markdown("#### Transformasi Color Space")
             
             target_space = st.selectbox(
                 "Pilih Color Space Target",
@@ -780,7 +777,7 @@ if uploaded_file:
         
         # Tab 2: Channel Extraction
         with color_tabs[1]:
-            st.markdown("#### 📤 Ekstraksi Channel")
+            st.markdown("#### Ekstraksi Channel")
             
             extract_mode = st.radio(
                 "Mode Ekstraksi",
@@ -852,7 +849,7 @@ if uploaded_file:
         
         # Tab 3: Pseudocolor
         with color_tabs[2]:
-            st.markdown("#### 🎨 Pseudocolor")
+            st.markdown("#### Pseudocolor")
             st.markdown("Menambahkan warna buatan pada citra grayscale untuk meningkatkan persepsi visual")
             
             # Convert to grayscale first
@@ -884,7 +881,7 @@ if uploaded_file:
     # =====================================================
     # MODUL 4: FEATURE-BASED SEGMENTATION
     # =====================================================
-    st.markdown('<div class="module-header">🎯 MODUL 4: FEATURE-BASED SEGMENTATION</div>', unsafe_allow_html=True)
+    st.markdown('<div class="module-header">MODUL 4: FEATURE-BASED SEGMENTATION</div>', unsafe_allow_html=True)
     
     st.markdown('<div class="info-box">Segmentasi citra untuk memisahkan objek dari latar belakang menggunakan berbagai metode berbasis fitur.</div>', unsafe_allow_html=True)
     
@@ -898,7 +895,7 @@ if uploaded_file:
     
     # Tab 1: Edge-Based Segmentation
     with seg_tabs[0]:
-        st.markdown("#### 🔍 Edge-Based Segmentation")
+        st.markdown("#### Edge-Based Segmentation")
         
         edge_method = st.selectbox(
             "Pilih Metode Deteksi Tepi",
@@ -978,7 +975,7 @@ if uploaded_file:
     
     # Tab 2: Thresholding
     with seg_tabs[1]:
-        st.markdown("#### 🎚️ Thresholding Methods")
+        st.markdown("#### Thresholding Methods")
         
         threshold_method = st.selectbox(
             "Pilih Metode Thresholding",
@@ -1058,7 +1055,7 @@ if uploaded_file:
     
     # Tab 3: Region-Based Segmentation
     with seg_tabs[2]:
-        st.markdown("#### 🗺️ Region-Based Segmentation")
+        st.markdown("#### Region-Based Segmentation")
         
         region_method = st.selectbox(
             "Pilih Metode Region-Based",
@@ -1193,7 +1190,7 @@ if uploaded_file:
     
     # Tab 4: Advanced Methods
     with seg_tabs[3]:
-        st.markdown("#### 🚀 Advanced Segmentation Methods")
+        st.markdown("#### Advanced Segmentation Methods")
         
         advanced_method = st.selectbox(
             "Pilih Metode Advanced",
@@ -1323,9 +1320,9 @@ if uploaded_file:
     # =====================================================
     # HASIL PIPELINE DAN DOWNLOAD
     # =====================================================
-    st.markdown('<div class="module-header">💾 HASIL AKHIR DAN DOWNLOAD</div>', unsafe_allow_html=True)
+    st.markdown('<div class="module-header">HASIL AKHIR DAN DOWNLOAD</div>', unsafe_allow_html=True)
     
-    st.success("✅ Pipeline processing selesai!")
+    st.success("Pipeline processing selesai!")
     
     col_final1, col_final2 = st.columns(2)
     
@@ -1378,12 +1375,12 @@ else:
     # Welcome screen
     st.markdown("""
     <div style='text-align: center; padding: 50px;'>
-        <h2>🎓 Selamat Datang di Aplikasi Image Processing ITS</h2>
+        <h2>Selamat Datang di Aplikasi Image Processing </h2>
         <p style='font-size: 18px; margin-top: 20px;'>
             Aplikasi interaktif untuk pembelajaran dan eksperimen pengolahan citra digital
         </p>
         <p style='color: #666; margin-top: 15px;'>
-            📁 Silakan upload citra (PNG/JPG/BMP) untuk memulai
+            Silakan upload citra (PNG/JPG/BMP) untuk memulai
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -1391,7 +1388,7 @@ else:
     st.markdown("---")
     
     # Feature overview
-    st.markdown("### 🎯 Fitur-Fitur Utama")
+    st.markdown("### Fitur-Fitur Utama")
     
     col_feat1, col_feat2 = st.columns(2)
     
@@ -1427,7 +1424,7 @@ st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
     <p><strong>Interactive Digital Image Processing Application</strong></p>
     <p>Fadaukas Daffa Tajuddin • Davin Amadeo Wijaya • Reihan Arianza</p>
-    <p>Institut Teknologi Sepuluh Nopember Surabaya - 2025</p>
+    <p>Final Project Pengolahan Citra dan Visi Komputer - 2025</p>
     <p style='font-size: 12px; margin-top: 10px;'>
         Powered by OpenCV, scikit-image, NumPy, and Streamlit
     </p>
